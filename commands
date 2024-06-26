@@ -1,0 +1,30 @@
+Start the Celery worker:
+
+celery -A scrapingWebsiteCurrency worker --loglevel=info
+
+celery -A scrapingWebsiteCurrency worker -l info
+
+
+
+
+Start the Celery beat scheduler:
+
+celery -A scrapingWebsiteCurrency beat --loglevel=info
+celery -A scrapingWebsiteCurrency beat -l info
+
+
+
+
+Identify Celery Processes:
+Run the command tasklist | findstr celery to list all celery.exe processes currently running. This command helps you confirm the presence of Celery workers.
+
+tasklist | findstr celery
+
+
+Terminate Celery Processes:
+Once you've identified the processes, use the taskkill command to terminate all instances of celery.exe. Execute the following command:
+
+taskkill /F /IM celery.exe
+
+pip install eventlet
+celery -A myapp.celeryapp worker --loglevel=info -P eventlet
